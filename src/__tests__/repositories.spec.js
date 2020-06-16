@@ -9,7 +9,7 @@ describe("Repositories", () => {
       .send({
         url: "https://github.com/Rocketseat/umbriel",
         title: "Umbriel",
-        techs: ["Node", "Express", "TypeScript"]
+        techs: ["Node", "Express", "TypeScript"],
       });
 
     expect(isUuid(response.body.id)).toBe(true);
@@ -18,7 +18,7 @@ describe("Repositories", () => {
       url: "https://github.com/Rocketseat/umbriel",
       title: "Umbriel",
       techs: ["Node", "Express", "TypeScript"],
-      likes: 0
+      likes: 0,
     });
   });
 
@@ -28,7 +28,7 @@ describe("Repositories", () => {
       .send({
         url: "https://github.com/Rocketseat/umbriel",
         title: "Umbriel",
-        techs: ["Node", "Express", "TypeScript"]
+        techs: ["Node", "Express", "TypeScript"],
       });
 
     const response = await request(app).get("/repositories");
@@ -40,8 +40,8 @@ describe("Repositories", () => {
           url: "https://github.com/Rocketseat/umbriel",
           title: "Umbriel",
           techs: ["Node", "Express", "TypeScript"],
-          likes: 0
-        }
+          likes: 0,
+        },
       ])
     );
   });
@@ -52,7 +52,7 @@ describe("Repositories", () => {
       .send({
         url: "https://github.com/Rocketseat/umbriel",
         title: "Umbriel",
-        techs: ["Node", "Express", "TypeScript"]
+        techs: ["Node", "Express", "TypeScript"],
       });
 
     const response = await request(app)
@@ -60,7 +60,7 @@ describe("Repositories", () => {
       .send({
         url: "https://github.com/Rocketseat/unform",
         title: "Unform",
-        techs: ["React", "ReactNative", "TypeScript", "ContextApi"]
+        techs: ["React", "ReactNative", "TypeScript", "ContextApi"],
       });
 
     expect(isUuid(response.body.id)).toBe(true);
@@ -68,7 +68,7 @@ describe("Repositories", () => {
     expect(response.body).toMatchObject({
       url: "https://github.com/Rocketseat/unform",
       title: "Unform",
-      techs: ["React", "ReactNative", "TypeScript", "ContextApi"]
+      techs: ["React", "ReactNative", "TypeScript", "ContextApi"],
     });
   });
 
@@ -82,17 +82,17 @@ describe("Repositories", () => {
       .send({
         url: "https://github.com/Rocketseat/umbriel",
         title: "Umbriel",
-        techs: ["React", "ReactNative", "TypeScript", "ContextApi"]
+        techs: ["React", "ReactNative", "TypeScript", "ContextApi"],
       });
 
     const response = await request(app)
       .put(`/repositories/${repository.body.id}`)
       .send({
-        likes: 15
+        likes: 15,
       });
 
     expect(response.body).toMatchObject({
-      likes: 0
+      likes: 0,
     });
   });
 
@@ -102,7 +102,7 @@ describe("Repositories", () => {
       .send({
         url: "https://github.com/Rocketseat/umbriel",
         title: "Umbriel",
-        techs: ["Node", "Express", "TypeScript"]
+        techs: ["Node", "Express", "TypeScript"],
       });
 
     await request(app).delete(`/repositories/${response.body.id}`).expect(204);
